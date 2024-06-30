@@ -737,7 +737,7 @@ public class ClientYesNo {
                         }
                         p.update_info_to_all();
                         Max_Level.show_table(p);
-                        // Service.send_box_ThongBao_OK(p, "Tăng thành công");
+                        Service.send_box_ThongBao_OK(p, "Tăng thành công");
                     }
                     break;
                 }

@@ -356,12 +356,17 @@ public class MenuController {
         case -21:
         case -13:
         case -1: {
-          if (p.conn.status != 1) {
+           if (p.conn.pass.equals('1') && p.conn.status != 1) {
             send_dynamic_menu(
-                p, type, get_name_npc(type), new String[] {"Kích Hoạt Tài Khoản", "Thách đấu",
-                    "Cao thủ", "Băng hải tặc", "Truy nã", "Đá hành trình","Điểm Danh","Điểm Danh Vip "+p.conn.vip},
+                p, type, get_name_npc(type), new String[] {"Đăng ký tài khoản","Kích hoạt tài khoản",
+                    "Top Thách đấu", "Cao thủ", "Băng hải tặc", "Truy nã","Đá hành trình","Điểm Danh ", "Điểm danh Vip "+p.conn.vip},
                 null);
-          } else {
+          }else if (p.conn.status != 1 && !(p.conn.pass.equals('1'))) {
+            send_dynamic_menu(
+                p, type, get_name_npc(type), new String[] { "Kích hoạt tài khoản",
+                    "Top Thách đấu", "Cao thủ", "Băng hải tặc", "Truy nã","Đá hành trình","Điểm Danh ", "Điểm danh Vip "+p.conn.vip},
+                null);
+          }else {
             send_dynamic_menu(p, type, get_name_npc(type), new String[] {"Thách đấu", "Cao thủ",
                 "Băng hải tặc", "Truy nã", "Đá hành trình","Điểm Danh","Điểm Danh Vip "+p.conn.vip}, null);
           }
@@ -1180,8 +1185,8 @@ public class MenuController {
   }
 private static void Menu_LucThuc(Player p, byte index) throws IOException {
         switch (index) {
-            case 0: {
-                String notice = "Điều kiện cần để có thể luyện Lục Thức:\r\n" + "• Đạt 8000 điểm Doriki\r\n" + "• Ít nhất là lv 70\r\n"
+            case 2: {
+                String notice = "Điều kiện cần để có thể luyện Lục Thức:\r\n" + "• Đạt Doriki Cam\r\n" + "• Ít nhất là lv 70\r\n"
                         + "• Sức Mạnh Vật Lý đạt tối đa \r\n" + "- Khi tích đủ kinh nghiệm đến npc: Buggi để tăng cấp.\r\n"
                         + "- Phí mỗi cấp là 10 triệu beri và 3.000 ruby, 500 exp Lục Thức, 100% tỷ lệ thành công.\r\n"
                         + "- Khi cảnh giới đạt đến Cao Cấp, đến npc: Buggi để đột phá.\r\n"
@@ -1189,15 +1194,15 @@ private static void Menu_LucThuc(Player p, byte index) throws IOException {
                 Service.send_box_ThongBao_OK(p, notice);
                 break;
             }
-            case 1: {
-                if (p.level >= 110 && p.doriki[0] >= 8 && p.sucmanhvatly == 12) {
+            case 0: {
+                if (p.level >= 70 && p.doriki[0] >= 6 && p.sucmanhvatly == 12) {
                     LucThuc.start(p);
                 } else {
                     Service.send_box_ThongBao_OK(p, "Chưa đủ điều kiện để có thể luyện lục thức");
                 }
                 break;
             }
-            case 2: {
+            case 1: {
                 LucThuc.send_info(p);
                 break;
             }
@@ -1210,7 +1215,7 @@ private static void Menu_LucThuc(Player p, byte index) throws IOException {
 
     private static void Menu_Doriki(Player p, byte index) throws IOException {
         switch (index) {
-            case 0: {
+            case 2: {
                 String notice = " Mỗi Doriki gồm có 5 cấp\r\n" + "- Tỷ lệ nâng cấp thành công là 30% \r\n"
                         + "- Khi nâng cấp cần  beri và ruby. \r\n"
                         + "- Mỗi cấp cần  5 triệu beri, 2.000 ruby.\r\n"
@@ -1219,11 +1224,11 @@ private static void Menu_LucThuc(Player p, byte index) throws IOException {
                 Service.send_box_ThongBao_OK(p, notice);
                 break;
             }
-            case 1: {
+            case 0: {
                 Doriki.start(p);
                 break;
             }
-            case 2: {
+            case 1: {
                 Doriki.send_info(p);
                 break;
             }
@@ -1236,7 +1241,7 @@ private static void Menu_LucThuc(Player p, byte index) throws IOException {
 
     private static void Menu_SucManhVatLy(Player p, byte index) throws IOException {
         switch (index) {
-            case 0: {
+            case 2: {
                 String notice = "Chức năng Sức Mạnh Vật Lý:\r\n" + "+Tổng cộng có 12 tầng \r\n" + "Điều kiện để đột phá:\r\n"
                         + "• Các hải tặc phải trên lv 60 \r\n" + "• 5 triệu beri • 2.000 ruby \r\n"
                         + "- Tỷ lệ thành công 30% \r\n" + "Mỗi cấp sẽ đạt đc:\r\n" + "+ 200 sát thương \r\n"
@@ -1245,7 +1250,7 @@ private static void Menu_LucThuc(Player p, byte index) throws IOException {
                 Service.send_box_ThongBao_OK(p, notice);
                 break;
             }
-            case 1: {
+            case 0: {
                 if (p.level < 60) {
                     Service.send_box_ThongBao_OK(p, "Level chưa đủ, cần cấp 60 trở lên");
                 } else {
@@ -1253,7 +1258,7 @@ private static void Menu_LucThuc(Player p, byte index) throws IOException {
                 }
                 break;
             }
-            case 2: {
+            case 1: {
                 SucManhVatLy.send_info(p);
                 break;
             }
@@ -1928,18 +1933,25 @@ private static void Menu_LucThuc(Player p, byte index) throws IOException {
   }
 
   private static void Menu_TruongLang(Player p, byte index) throws IOException {
-    if (!(p.conn.status != 1)) {
+    if (!(p.conn.pass.equals('1'))) {
       index++;
+    } 
+    if (!(p.conn.status != 1)) {
+      index ++;  
     }
     switch (index) {
       case 0: {
         if (p.level > 3) {
           Service.input_text(p, 2, "Đăng ký",
               new String[] {"Tên tài khoản (Email hoặc SĐT)", "Mật khẩu (6 đến 10 ký tự)"});
+          break;
         } else {
           Service.send_box_ThongBao_OK(p, "Hãy luyện tập đến khi level 4 hãy quay lại đây!");
+          break;
         }
-          if (p.conn.coin < 10000) {
+      }
+      case 1: {
+        if (p.conn.coin < 10000) {
               Service.send_box_ThongBao_OK(p, "Bạn Không đủ 10000 Coin để kích hoạt!");
               return;
           }
@@ -1948,29 +1960,31 @@ private static void Menu_LucThuc(Player p, byte index) throws IOException {
           p.update_status(1);
           Service.send_box_ThongBao_OK(p, "Bạn đã kích hoạt thành công!");
          break;
+          
+        
       }
-      case 1: {
+      case 2: {
         BXH.send(p, 7, 0);
         break;
       }
-      case 2: {
+      case 3: {
         BXH.send(p, 4, 0);
         break;
       }
-      case 3: {
+      case 4: {
         BXH.send(p, 6, 0);
         break;
       }
-      case 4: {
+      case 5: {
         BXH.send(p, 9, 0);
         break;
       }
-      case 5: {
+      case 6: {
         send_dynamic_menu(p, 978, "Đá hành trình",
             new String[] {"Kho hành trình", "Bản đồ hành trình", "Hướng dẫn"}, null);
         break;
       }
-      case 6: {
+      case 7: {
                 if (p.diemdanh == 0) {
                     p.diemdanh = 1;
                     int ruby = Util.random(1, 200);
@@ -1984,7 +1998,7 @@ private static void Menu_LucThuc(Player p, byte index) throws IOException {
                 }
                 break;
       }
-      case 7: {
+      case 8: {
                 if (p.diemdanhvip == 0) {
                     p.diemdanhvip = 1;
                     if (p.conn.vip == 0){
@@ -2068,15 +2082,15 @@ private static void Menu_LucThuc(Player p, byte index) throws IOException {
         break;
       }
       case 3: { // Lục Thức
-                send_dynamic_menu(p, 1002,"Lục Thức", new String[]{"Hướng dẫn", "Luyện Lục Thức", "Cảnh Giới"}, null);
+                send_dynamic_menu(p, 1002,"Lục Thức", new String[]{"Luyện Lục Thức", "Cảnh Giới", "Hướng dẫn"}, null);
                 break;
             }
       case 4: { // Sức Mạnh Vật Lý
-                send_dynamic_menu(p, 1003,"Sức Mạnh Vật Lý", new String[]{"Hướng dẫn", "Tăng Sức Mạnh", "Thể Trạng"}, null);
+                send_dynamic_menu(p, 1003,"Sức Mạnh Vật Lý", new String[]{"Tăng Sức Mạnh", "Thể Trạng", "Hướng dẫn"}, null);
                 break;
             }
       case 5: { // Doriki
-                send_dynamic_menu(p, 1001,"Doriki", new String[]{"Hướng dẫn", "Nâng Cấp", "Doriki"}, null);
+                send_dynamic_menu(p, 1001,"Doriki", new String[]{"Nâng Cấp", "Doriki", "Hướng dẫn"}, null);
                 break;
             }
     }

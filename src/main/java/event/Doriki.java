@@ -38,18 +38,20 @@ public class Doriki {
                     p.doriki[0]++;
                     p.doriki[1] = 1;
                     Service.send_box_ThongBao_OK(p,
-                            "Thành công tăng cấp " + Doriki.NAME[p.doriki[0] - 2] + "\nĐạt được:\n" + "+ "
-                            + ((p.doriki[0] - 1) * 5 + p.doriki[1]) + "% sát thương \r\n" + "+ "
-                            + ((p.doriki[0] - 1) * 5 + p.doriki[1]) + "% máu\r\n" + "+ "
-                            + ((p.doriki[0] - 1) * 5 + p.doriki[1]) + "% mana\r\n" + "+ "
-                            + ((p.doriki[0] - 1) * 5 + p.doriki[1]) + "% phòng thủ.");
+                            "Thành công tăng cấp " + Doriki.NAME[p.doriki[0] - 2] 
+                            + "\nĐạt được:\n" 
+                            + "+ " + ((p.doriki[0] - 1) * 10 + p.doriki[1]) + "% sát thương \r\n"
+                            + "+ " + ((p.doriki[0] - 1) * 10 + p.doriki[1]) + "% máu\r\n" 
+                            + "+ " + ((p.doriki[0] - 1) * 10 + p.doriki[1]) + "% mana\r\n" 
+                            + "+ " + ((p.doriki[0] - 1) * 10 + p.doriki[1]) + "% phòng thủ.");
                 } else {
                     Service.send_box_ThongBao_OK(p,
                             "Thành công tăng cấp " + Doriki.NAME[p.doriki[0] - 1] + " lên tầng thứ " + p.doriki[1]
-                            + "\nĐạt được:\n" + "+ " + ((p.doriki[0] - 1) * 5 + p.doriki[1]) + "% sát thương \r\n"
-                            + "+ " + ((p.doriki[0] - 1) * 5 + p.doriki[1]) + "% máu\r\n" + "+ "
-                            + ((p.doriki[0] - 1) * 5 + p.doriki[1]) + "% mana\r\n" + "+ "
-                            + ((p.doriki[0] - 1) * 5 + p.doriki[1]) + "% phòng thủ.");
+                            + "\nĐạt được:\n" 
+                            + "+ " + ((p.doriki[0] - 1) * 10 + p.doriki[1]) + "% sát thương \r\n"
+                            + "+ " + ((p.doriki[0] - 1) * 10 + p.doriki[1]) + "% máu\r\n" 
+                            + "+ " + ((p.doriki[0] - 1) * 10 + p.doriki[1]) + "% mana\r\n" 
+                            + "+ " + ((p.doriki[0] - 1) * 10 + p.doriki[1]) + "% phòng thủ.");
                 }
                  Service.UpdateInfoMaincharInfo(p);
                 
@@ -65,7 +67,13 @@ public class Doriki {
         if (p.doriki[0] < 8) {
             String notice = "";
             
-            notice += "\nDoriki hiện tại: " + Doriki.NAME[p.doriki[0] - 1] + " cấp " + p.doriki[1]+ "\nExp: " + p.lucthuc[2];
+            notice += "\nDoriki hiện tại: " + Doriki.NAME[p.doriki[0] - 1] + " cấp " + p.doriki[1]
+                        + "\nĐạt được:\n" 
+                        + "+ " + ((p.doriki[0] - 1) * 10 + p.doriki[1]) + "% sát thương \r\n"
+                        + "+ " + ((p.doriki[0] - 1) * 10 + p.doriki[1]) + "% máu\r\n" 
+                        + "+ " + ((p.doriki[0] - 1) * 10 + p.doriki[1]) + "% mana\r\n" 
+                        + "+ " + ((p.doriki[0] - 1) * 10 + p.doriki[1]) + "% phòng thủ."
+                        + "\nExp: " + p.lucthuc[2];
             Service.send_box_ThongBao_OK(p, notice);
         } else {
             Service.send_box_ThongBao_OK(p, "Đạt tối đa");

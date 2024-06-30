@@ -34,8 +34,8 @@ public class LucThuc {
     };
 
     public static void start(Player p) throws IOException {
-        if (p.lucthuc[0] < 11) {
-            if (p.lucthuc[1] < 5) {
+        if (p.lucthuc[0] < 7) {
+            if (p.lucthuc[1] < 3) {
                 if (p.lucthuc[2] < 500) {
                     Service.send_box_ThongBao_OK(p, "Không đủ 500 exp lục thức");
                     return;
@@ -56,7 +56,13 @@ public class LucThuc {
                 p.lucthuc[1]++;
                 Service.UpdateInfoMaincharInfo(p);
                 Service.send_box_ThongBao_OK(p, "Thành công nâng cấp tại cảnh giới " + LucThuc.NAME[p.lucthuc[0] - 1]
-                        + " đạt cấp " + LucThuc.NAME_2[p.lucthuc[1] - 1]);
+                        + " đạt cấp " + LucThuc.NAME_2[p.lucthuc[1] - 1]
+                        + "Đạt được: "
+                        + "+ " + (p.lucthuc[0]*3 + p.lucthuc[1]*3) + " % giảm né đối thủ \r\n" 
+                        + "+ " + (p.lucthuc[0]*3 + p.lucthuc[1]*3) + " % giảm chí mạng đối thủ \r\n"
+                        + "+ " + (p.lucthuc[0]*3 + p.lucthuc[1]*3) + " % giảm xuyên giáp đối thủ \r\n"
+                        + "+ " + (p.lucthuc[0]*5 + p.lucthuc[1]*3) + " % sát thương chuẩn \r\n"
+                );
             } else {
                 
                 if (p.lucthuc[2] < 1000) {
@@ -81,7 +87,13 @@ public class LucThuc {
                 p.lucthuc[1] = 1;
                 p.lucthuc[0]++;
                 Service.send_box_ThongBao_OK(p, "Thành công đột phá cảnh giới " + LucThuc.NAME[p.lucthuc[0] - 2]
-                        + "\nĐạt cảnh giới mới: + " + LucThuc.NAME[p.lucthuc[0] - 1]);
+                        + "\nĐạt cảnh giới mới: + " + LucThuc.NAME[p.lucthuc[0] - 1]
+                        + "Đạt được: "
+                        + "+ " + (p.lucthuc[0]*3 + p.lucthuc[1]*3) + " % giảm né đối thủ \r\n" 
+                        + "+ " + (p.lucthuc[0]*3 + p.lucthuc[1]*3) + " % giảm chí mạng đối thủ \r\n"
+                        + "+ " + (p.lucthuc[0]*3 + p.lucthuc[1]*3) + " % giảm xuyên giáp đối thủ \r\n"
+                        + "+ " + (p.lucthuc[0]*5 + p.lucthuc[1]*3) + " % sát thương chuẩn \r\n"
+                );
                 Service.UpdateInfoMaincharInfo(p);
             } else {
                 Service.send_box_ThongBao_OK(p, "Thất bại, hãy nghỉ nghơi và thử lại");
@@ -93,14 +105,25 @@ public class LucThuc {
     }
 
     public static void send_info(Player p) throws IOException {
-        if (p.lucthuc[0] < 11) {
+        if (p.lucthuc[0] < 7) {
             String notice = "Hiện tại:";
             
             notice += "\nCảnh giới: " + LucThuc.NAME[p.lucthuc[0] - 1] + " cấp " + LucThuc.NAME_2[p.lucthuc[1] - 1]
+                    + "Đạt được: "
+                        + "+ " + (p.lucthuc[0]*3 + p.lucthuc[1]*3) + " % giảm né đối thủ \r\n" 
+                        + "+ " + (p.lucthuc[0]*3 + p.lucthuc[1]*3) + " % giảm chí mạng đối thủ \r\n"
+                        + "+ " + (p.lucthuc[0]*3 + p.lucthuc[1]*3) + " % giảm xuyên giáp đối thủ \r\n"
+                        + "+ " + (p.lucthuc[0]*5 + p.lucthuc[1]*3) + " % sát thương chuẩn \r\n"
                     + "\nExp: " + p.lucthuc[2];
             Service.send_box_ThongBao_OK(p, notice);
         } else {
-            Service.send_box_ThongBao_OK(p, "Bạn đã đạt tuyệt kỹ Rokuogan, kỹ thuật tối cao của Lục Thức, một loại võ thuật đặc biệt trong One Piece.");
+            Service.send_box_ThongBao_OK(p, "Bạn đã đạt tuyệt kỹ Rokuogan, kỹ thuật tối cao của Lục Thức, một loại võ thuật đặc biệt trong One Piece.\n"
+            + "Đạt được: "
+                        + "+ " + (p.lucthuc[0]*3 + p.lucthuc[1]*3) + " % giảm né đối thủ \r\n" 
+                        + "+ " + (p.lucthuc[0]*3 + p.lucthuc[1]*3) + " % giảm chí mạng đối thủ \r\n"
+                        + "+ " + (p.lucthuc[0]*3 + p.lucthuc[1]*3) + " % giảm xuyên giáp đối thủ \r\n"
+                        + "+ " + (p.lucthuc[0]*5 + p.lucthuc[1]*3) + " % sát thương chuẩn \r\n"        
+            );
         }
     }
 }

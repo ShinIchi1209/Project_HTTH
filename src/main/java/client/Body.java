@@ -424,15 +424,15 @@ public class Body {
     public int get_dame_percent(boolean have_eff) {
         int par = total_param_item(1, have_eff);
         par += Body.Point1_Template_atk[get_total_point(1) - 1];
-        par += ((p.doriki[0] - 1) * 5 + p.doriki[1]) * 100;
-        par += (p.sucmanhvatly * 20);
+        par += ((p.doriki[0] - 1) * 10 + p.doriki[1]) * 100;
+        par += (p.sucmanhvatly * 200);
         return par;
     }
 
     public int get_def(boolean have_eff) {
         int def = this.get_total_point(2);
         def += total_param_item(3, have_eff);
-        def += (p.sucmanhvatly * 20);
+        def += (p.sucmanhvatly * 200);
         return def;
     }
 
@@ -440,7 +440,7 @@ public class Body {
         int par = total_param_item(4, have_eff);
         par += Body.Point2_Template_def[this.get_total_point(2) - 1];
         int percent = total_param_item(80, have_eff);
-        par += ((p.doriki[0] - 1) * 5 + p.doriki[1]) * 100; //cap doriki
+        par += ((p.doriki[0] - 1) * 10 + p.doriki[1]) * 100; //cap doriki
         par = (par * (1000 + percent)) / 1000;
         return par;
     }
@@ -457,7 +457,7 @@ public class Body {
         percent += ((p.doriki[0] - 1) * 50 + p.doriki[1]) * 100;
         hp = (hp * (1000L + percent)) / 1000L;
         hp = (hp * (1000L + total_param_item(56, true))) / 1000L; // % hp cuoi
-        hp += (p.sucmanhvatly * 2000);
+        hp += (p.sucmanhvatly * 20000);
         if (hp > 2_000_000_000L) {
             hp = 2_000_000_000L;
         }
@@ -470,7 +470,7 @@ public class Body {
         mp += total_param_item(16, have_eff);
         mp += ((p.doriki[0] - 1) * 50 + p.doriki[1]) * 100;
         mp = (mp * (1000 + total_param_item(18, have_eff))) / 1000;
-        mp += (p.sucmanhvatly * 2000);
+        mp += (p.sucmanhvatly * 20000);
         return mp;
     }
 
@@ -622,7 +622,7 @@ public class Body {
     public int get_pierce(boolean have_eff) {
         int par = total_param_item(13, have_eff);
         par += Body.Point1_Template_pierce[this.get_total_point(1) - 1];
-        par += (p.sucmanhvatly * 20);
+        par += (p.sucmanhvatly * 200);
         
         if (par > 750) {
             int save = par - 750;
@@ -646,7 +646,7 @@ public class Body {
     public int get_crit(boolean have_eff) {
         int par = total_param_item(10, have_eff);
         par += Body.Point1_Template_crit[this.get_total_point(1) - 1];
-        par += (p.sucmanhvatly * 20);
+        par += (p.sucmanhvatly * 200);
         //
         if (par > 750) {
             int save = par - 750;
@@ -792,6 +792,7 @@ public class Body {
 
     public int get_crit_reduce() {
         int par = total_param_item(49, true);
+        par += (p.lucthuc[0]*3 + p.lucthuc[1]*3);
         int index_full_set = p.get_index_full_set();
         if (index_full_set == 5) {
             par += (80 * 1);
@@ -814,6 +815,7 @@ public class Body {
 
     public int get_pierce_reduce() {
         int par = total_param_item(50, true);
+        par += (p.lucthuc[0]*3 + p.lucthuc[1]*3);
         int index_full_set = p.get_index_full_set();
         if (index_full_set == 5) {
             par += (80 * 1);
@@ -825,6 +827,7 @@ public class Body {
 
     public int get_miss_reduce() {
         int par = total_param_item(51, true);
+        par += (p.lucthuc[0]*3 + p.lucthuc[1]*3) ;
         int index_full_set = p.get_index_full_set();
         if (index_full_set == 5) {
             par += (80 * 1);
@@ -836,6 +839,7 @@ public class Body {
 
     public int get_true_dame() {
         int par = total_param_item(57, true);
+        par += (p.lucthuc[0]*5 + p.lucthuc[1]*3);
         int index_full_set = p.get_index_full_set();
         if (index_full_set == 5) {
             par += 100;

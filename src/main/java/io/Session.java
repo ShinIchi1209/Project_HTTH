@@ -620,32 +620,32 @@ public class Session implements Runnable {
             }
         } else {
             if (user_.equals("") && pass_.equals("")) {
-                login_notice("Truy cập hanhtrinhhaitac.com để đăng ký");
-                return;
-//                user_ = "htth_truongbk_" + System.nanoTime();
-//                pass_ = "1";
-//                Connection conn = null;
-//                Statement st = null;
-//                try {
-//                    conn = SQL.gI().getCon();
-//                    st = conn.createStatement();
-//                    st.execute("INSERT INTO `accounts` (`user`, `pass`,`lock`) VALUES ('" + user_
-//                            + "', '1', 0)");
-//                } catch (SQLException e) {
-//                    e.printStackTrace();
-//                    return;
-//                } finally {
-//                    try {
-//                        if (st != null) {
-//                            st.close();
-//                        }
-//                        if (conn != null) {
-//                            conn.close();
-//                        }
-//                    } catch (SQLException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
+//                login_notice("Truy cập hanhtrinhhaitac.com để đăng ký");
+//                return;
+                user_ = "htth_truongbk_" + System.nanoTime();
+                pass_ = "1";
+                Connection conn = null;
+                Statement st = null;
+                try {
+                    conn = SQL.gI().getCon();
+                    st = conn.createStatement();
+                    st.execute("INSERT INTO `accounts` (`user`, `pass`,`lock`) VALUES ('" + user_
+                            + "', '1', 0)");
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    return;
+                } finally {
+                    try {
+                        if (st != null) {
+                            st.close();
+                        }
+                        if (conn != null) {
+                            conn.close();
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
             } else {
                 pass_ = "1";
                 Connection conn = null;
@@ -1024,10 +1024,10 @@ public class Session implements Runnable {
                 }
             }
             query = String.format(query, name, "[" + head + "," + hair + "]", "[1,0,0]", clazz,
-                    "[1000000,500,0,0,0,0,0,0,7,0,0,0]", "[0,0,-1,-1,300,300,1,0,20,0,3,0,3,0]",
+                    "[1000000,5000,0,0,0,0,0,0,7,0,0,0]", "[0,0,-1,-1,300,300,1,0,20,0,3,0,3,0]",
                     "[]", body_wear, "[5,1,1,1,1,1,0,[]]", "[]",
                     "[[],[],[],[],[0,18],[],[],[],[],[],[]]", skill_by_clazz, "[]", "[]", fashion_,
-                    "[]", "[]", "[]", "[[0,[]]]", DateTime.now(), 0, "[]", "[]", "[]", 0, "[]",
+                    "[]", "[]", "[]", "[[0,[]]]", DateTime.now(), 1000, "[]", "[]", "[]", 10000, "[]",
                     "[[0,1,1]]","[0,1,1,1,1,0]");
             st.execute(query);
         } catch (SQLException e) {

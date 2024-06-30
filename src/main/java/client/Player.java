@@ -184,6 +184,7 @@ public class Player {
             wanted_price = rs.getInt("wanted_point");
             diemdanh = rs.getInt("diemdanh");
             diemdanhvip = rs.getInt("diemdanhvip");
+            //vnd = rs.getInt("coin");
             JSONArray js = (JSONArray) JSONValue.parse(rs.getString("level"));
             level = Short.parseShort(js.get(0).toString());
             exp = Long.parseLong(js.get(1).toString());
