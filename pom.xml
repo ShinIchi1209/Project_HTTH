@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.htth</groupId>
-  <artifactId>htth-project-Truongbk</artifactId>
+  <artifactId>Project_HTTH</artifactId>
   <version>1.0</version>
 <packaging>jar</packaging>
 
@@ -114,5 +114,5 @@
 
         </plugins>
     </build>
-
+    <name>Project_HTTH</name>
 </project>
