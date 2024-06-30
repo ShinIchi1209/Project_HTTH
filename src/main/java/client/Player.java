@@ -181,6 +181,7 @@ public class Player {
             index_map = (short) id;
             clazz = rs.getByte("clazz");
             pvppoint = rs.getInt("pvppoint");
+            wanted_price = rs.getInt("wanted_point");
             diemdanh = rs.getInt("diemdanh");
             diemdanhvip = rs.getInt("diemdanhvip");
             JSONArray js = (JSONArray) JSONValue.parse(rs.getString("level"));
@@ -218,7 +219,7 @@ public class Player {
             time_can_hs = Byte.parseByte(js.get(8).toString());
             time_nvl = Integer.parseInt(js.get(9).toString());
             time_ttvt = Byte.parseByte(js.get(10).toString());
-            wanted_price = Integer.parseInt(js.get(11).toString());
+            //wanted_price = Integer.parseInt(js.get(11).toString());
             js.clear();
             this.wanted_chest = new Wanted_Chest[2];
             js = (JSONArray) JSONValue.parse(rs.getString("wanted_chest"));
@@ -1159,9 +1160,6 @@ public class Player {
             exp_up *= Manager.gI().exp;
         }
         this.exp += exp_up ;
-        //this.exp *= 10000;
-        this.lucthuc[2] += (exp_up/(this.level*10)) ;
-        //
         if (this.level < 100 && this.exp >= Level.ENTRYS[this.level - 1].exp) {
             while (this.level < 100 && this.exp >= Level.ENTRYS[this.level - 1].exp) {
                 this.exp -= Level.ENTRYS[this.level - 1].exp;
@@ -1658,7 +1656,7 @@ public class Player {
 
     public void update_skill_exp(int index, long exp) throws IOException {
         exp *= Manager.gI().exp ;
-        //exp *= 10000;
+        this.lucthuc[2] += (exp/(this.level*500)) ;
         if (index < 4 || index == 5000) {
             Skill_info sk_info = null;
             for (int i = 0; i < this.skill_point.size(); i++) {
