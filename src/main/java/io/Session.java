@@ -57,6 +57,7 @@ public class Session implements Runnable {
     public String version;
     public byte lock;
     public byte status;
+    public byte note;
     public int coin;
     public int vip;
     private boolean getImgAPK = false;
@@ -547,6 +548,7 @@ public class Session implements Runnable {
         this.coin = 0;
         this.coin = 0;
         this.status = 0;
+        this.note = 1;
         list_char = new ArrayList<>();
         if (type == 0) {
             Pattern p = Pattern.compile("^[a-zA-Z0-9@.#]{1,30}$");
@@ -567,7 +569,7 @@ public class Session implements Runnable {
                     return;
                 }
             }
-            //
+            //this.note = rs.getInt("note");
             Connection conn = null;
             Statement st = null;
             ResultSet rs = null;
@@ -589,6 +591,7 @@ public class Session implements Runnable {
                 this.vip = rs.getInt("vip");
                 this.coin = rs.getInt("coin");
                 this.status = rs.getByte("status");
+                this.note = rs.getByte("note");
                 this.lock = rs.getByte("lock");
                 if (this.lock != 0) {
                     login_notice("Tài khoản bị khóa để kiểm tra, liên hệ admin để biết chi tiết, "

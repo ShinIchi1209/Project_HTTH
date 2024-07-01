@@ -839,7 +839,7 @@ public class Body {
 
     public int get_true_dame() {
         int par = total_param_item(57, true);
-        par += (p.lucthuc[0]*5 + p.lucthuc[1]*3);
+        par += ((p.lucthuc[0]*5 + p.lucthuc[1]*3) * 10);
         int index_full_set = p.get_index_full_set();
         if (index_full_set == 5) {
             par += 100;

@@ -76,7 +76,14 @@ public class Doriki {
                         + "\nExp: " + p.lucthuc[2];
             Service.send_box_ThongBao_OK(p, notice);
         } else {
-            Service.send_box_ThongBao_OK(p, "Đạt tối đa");
+            Service.send_box_ThongBao_OK(p, "Đạt tối đa\n"
+            + "\nĐạt được:\n" 
+                        + "+ " + ((p.doriki[0] - 1) * 10 + p.doriki[1]) + "% sát thương \r\n"
+                        + "+ " + ((p.doriki[0] - 1) * 10 + p.doriki[1]) + "% máu\r\n" 
+                        + "+ " + ((p.doriki[0] - 1) * 10 + p.doriki[1]) + "% mana\r\n" 
+                        + "+ " + ((p.doriki[0] - 1) * 10 + p.doriki[1]) + "% phòng thủ."
+                        + "\nExp: " + p.lucthuc[2]
+            );
         }
     }
 }

@@ -62,17 +62,77 @@ public class ServerEventManager {
                         Clan.reset_day();
                         LittleGarden.LIST.clear();
                     }
+                    if (hour == 1 && min == 0 && sec == 0) {
+                        Boss.create_boss();
+                    }
+                    if (hour == 2 && min == 0 && sec == 0) {
+                        Boss.create_boss();
+                    }
+                    if (hour == 3 && min == 0 && sec == 0) {
+                        Boss.create_boss();
+                    }
+                    if (hour == 4 && min == 0 && sec == 0) {
+                        Boss.create_boss();
+                    }
+                    if (hour == 5 && min == 0 && sec == 0) {
+                        Boss.create_boss();
+                    }
+                    if (hour == 6 && min == 0 && sec == 0) {
+                        Boss.create_boss();
+                    }
+                    if (hour == 7 && min == 0 && sec == 0) {
+                        Boss.create_boss();
+                    }
+                    if (hour == 8 && min == 0 && sec == 0) {
+                        Boss.create_boss();
+                    }
+                    if (hour == 9 && min == 0 && sec == 0) {
+                        Boss.create_boss();
+                    }
+                    if (hour == 10 && min == 0 && sec == 0) {
+                        Boss.create_boss();
+                    }
+                    if (hour == 11 && min == 0 && sec == 0) {
+                        Boss.create_boss();
+                    }
+                    if (hour == 12 && min == 0 && sec == 0) {
+                        Boss.create_boss();
+                    }
+                    if (hour == 13 && min == 0 && sec == 0) {
+                        Boss.create_boss();
+                    }
+                    if (hour == 14 && min == 0 && sec == 0) {
+                        Boss.create_boss();
+                    }
+                    if (hour == 15 && min == 0 && sec == 0) {
+                        Boss.result_boss();
+                    }
+                    if (hour == 16 && min == 0 && sec == 0) {
+                        Boss.create_boss();
+                    }
+                    if (hour == 17 && min == 0 && sec == 0) {
+                        Boss.result_boss();
+                    }
                     if (hour == 18 && min == 0 && sec == 0) {
                         Boss.create_boss();
                     }
                     if (hour == 19 && min == 0 && sec == 0) {
-                        Boss.result_boss();
+                        Boss.create_boss();
+                    }
+                    if (hour == 20 && min == 0 && sec == 0) {
+                        Boss.create_boss();
+                    }
+                    if (hour == 21 && min == 0 && sec == 0) {
+                        Boss.create_boss();
                     }
                     if (hour == 22 && min == 0 && sec == 0) {
                         Boss.create_boss();
                     }
                     if (hour == 23 && min == 0 && sec == 0) {
-                        Boss.result_boss();
+                        Boss.create_boss();
+                    }
+                    if (hour == 24 && min == 0 && sec == 0) {
+                        Boss.create_boss();
                     }
                     if (sec % 1 == 0) { // update eff player
                         for (Map[] mapall : Map.ENTRYS) {
