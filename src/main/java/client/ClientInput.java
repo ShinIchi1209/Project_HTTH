@@ -228,7 +228,7 @@ public class ClientInput {
                         Service.send_box_ThongBao_OK(p, "Số nhập không hợp lệ");
                         return;
                     }
-                    long value = Long.parseLong(name[0]) * 1000L;
+                    long value = Long.parseLong(name[0]) * 10L;
                     if (value <= 0) {
                         Service.send_box_ThongBao_OK(p, "Số nhập không hợp lệ");
                         return;
@@ -238,7 +238,7 @@ public class ClientInput {
                                 "Bạn không đủ " + Util.number_format(value) + " extol");
                         return;
                     }
-                    int ruby = (int) ((long) value / 1000);
+                    int ruby = (int) ((long) value / 10);
                     p.data_yesno = new int[] {ruby};
                     Service.send_box_yesno(p, 9, "Thông báo",
                             "Bạn có thật sự muốn đổi " + Util.number_format(value) + " Extol để"
@@ -254,7 +254,7 @@ public class ClientInput {
                         Service.send_box_ThongBao_OK(p, "Số nhập không hợp lệ");
                         return;
                     }
-                    long value = Long.parseLong(name[0])*5 ;
+                    long value = Long.parseLong(name[0]) ;
                     if (value <= 0 ) {
                         Service.send_box_ThongBao_OK(p, "Số nhập không hợp lệ");
                         return;
@@ -264,7 +264,7 @@ public class ClientInput {
                                 "Bạn không đủ " + Util.number_format(value) + " coin");
                         return;
                     }
-                    int ruby = (int) ((long) value / 5);
+                    int ruby = (int) ((long) value *2);
                     p.data_yesno = new int[] {ruby};
                     Service.send_box_yesno(p, 60, "Thông báo",
                             "Bạn có thật sự muốn đổi " + Util.number_format(value) + " Coin để"

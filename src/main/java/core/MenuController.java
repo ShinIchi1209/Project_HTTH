@@ -739,7 +739,7 @@ public class MenuController {
                                     if (check_tt_tp) {
                                         if (p.tableTickOption == null) {
                                             int time_h = LocalTime.now().getHourOfDay();
-                                            if ((Util.is_DayofWeek(2) || Util.is_DayofWeek(4) || Util.is_DayofWeek(6)) //&& time_h == 21
+                                            if (time_h >= 19//(Util.is_DayofWeek(2) || Util.is_DayofWeek(4) || Util.is_DayofWeek(6)) //&& 
                                                     ) {
                                                 p.tableTickOption = new TableTickOption();
                                                 p.tableTickOption.listP = new ArrayList<>();
@@ -759,7 +759,7 @@ public class MenuController {
                                                 TableTickOption.show_table(p, "Phó bản khổng lồ");
                                             } else {
                                                 Service.send_box_ThongBao_OK(p,
-                                                        "Phó bản hoạt động vào 21h tối thứ 3, 5, 7");
+                                                        "Phó bản hoạt động từ 19h hằng ngày ");
                                             }
                                         } else {
                                             Service.send_box_ThongBao_OK(p, "Băng đã đăng ký, đang chờ ghép đội!");
@@ -969,7 +969,7 @@ public class MenuController {
                         }
                         case 1: {
                             Service.send_box_yesno(p, 10, "Thông báo",
-                                    "Bạn muốn đổi 1000 ruby sang 750.000 extol?", new String[]{"Đồng ý", "Hủy"},
+                                    "Bạn muốn đổi 1000 ruby sang 7.500 extol?", new String[]{"Đồng ý", "Hủy"},
                                     new byte[]{2, 1});
                             break;
                         }
@@ -987,7 +987,7 @@ public class MenuController {
                                         "Chưa Kích hoạt không thể đổi coin");
                                 return;
                             }
-                            Service.input_text(p, 8, "Đổi Coin Sang Ruby", new String[]{"10 coin = 2 ruby"});
+                            Service.input_text(p, 8, "Đổi Coin Sang Ruby", new String[]{"Nhập số coin muốn đổi.\n"+"(1 coin = 2 ruby)"});
                             break;
                         }
                         case 5: {
@@ -996,7 +996,7 @@ public class MenuController {
                                         "Chưa Kích hoạt không thể đổi Beri");
                                 return;
                             }
-                            Service.input_text(p, 9, "Đổi Coin Sang Beri", new String[]{"1 coin = 5000 beri"});
+                            Service.input_text(p, 9, "Đổi Coin Sang Beri", new String[]{"Nhập số beri muốn đổi.\n"+"(1 coin = 5000 beri)"});
                             break;
                         }
                         case 6: {
@@ -2024,8 +2024,8 @@ public class MenuController {
             case 7: {
                 if (p.diemdanh == 0) {
                     p.diemdanh = 1;
-                    int ruby = Util.random(1, 200);
-                    int beri = Util.random(1, 1000000);
+                    int ruby = Util.random(1, 1000);
+                    int beri = Util.random(1, 10000000);
                     p.update_ngoc(ruby);
                     p.update_vang(beri);
                     p.update_money();
@@ -2039,56 +2039,56 @@ public class MenuController {
                 if (p.diemdanhvip == 0) {
                     p.diemdanhvip = 1;
                     if (p.conn.vip == 0) {
-                        int ruby = 100;
+                        int ruby = 500;
                         p.update_ngoc(ruby);
                         p.update_money();
                         Service.send_box_ThongBao_OK(p, "Bạn đã điểm danh vip 0 thành công, được " + ruby + " ruby ");
                         return;
                     }
                     if (p.conn.vip == 1) {
-                        int ruby = 215;
+                        int ruby = 1015;
                         p.update_ngoc(ruby);
                         p.update_money();
                         Service.send_box_ThongBao_OK(p, "Bạn đã điểm danh vip 1 thành công, được " + ruby + " ruby ");
                         return;
                     }
                     if (p.conn.vip == 2) {
-                        int ruby = 1000;
+                        int ruby = 2104;
                         p.update_ngoc(ruby);
                         p.update_money();
                         Service.send_box_ThongBao_OK(p, "Bạn đã điểm danh vip 2 thành công, được " + ruby + " ruby ");
                         return;
                     }
                     if (p.conn.vip == 3) {
-                        int ruby = 2000;
+                        int ruby = 3201;
                         p.update_ngoc(ruby);
                         p.update_money();
                         Service.send_box_ThongBao_OK(p, "Bạn đã điểm danh vip 3 thành công, được " + ruby + " ruby ");
                         return;
                     }
                     if (p.conn.vip == 4) {
-                        int ruby = 3000;
+                        int ruby = 4031;
                         p.update_ngoc(ruby);
                         p.update_money();
                         Service.send_box_ThongBao_OK(p, "Bạn đã điểm danh vip 4 thành công, được " + ruby + " ruby ");
                         return;
                     }
                     if (p.conn.vip == 5) {
-                        int ruby = 7000;
+                        int ruby = 7060;
                         p.update_ngoc(ruby);
                         p.update_money();
                         Service.send_box_ThongBao_OK(p, "Bạn đã điểm danh vip 5 thành công, được " + ruby + " ruby ");
                         return;
                     }
                     if (p.conn.vip == 6) {
-                        int ruby = 20000;
+                        int ruby = 21070;
                         p.update_ngoc(ruby);
                         p.update_money();
                         Service.send_box_ThongBao_OK(p, "Bạn đã điểm danh vip 6 thành công, được " + ruby + " ruby ");
                         return;
                     }
                     if (p.conn.vip == 7) {
-                        int ruby = 50000;
+                        int ruby = 50261;
                         p.update_ngoc(ruby);
                         p.update_money();
                         Service.send_box_ThongBao_OK(p, "Bạn đã điểm danh vip thành công, được " + ruby + " ruby ");

@@ -425,14 +425,14 @@ public class Body {
         int par = total_param_item(1, have_eff);
         par += Body.Point1_Template_atk[get_total_point(1) - 1];
         par += ((p.doriki[0] - 1) * 10 + p.doriki[1]) * 100;
-        par += (p.sucmanhvatly * 200);
+        par += (p.sucmanhvatly * 100);
         return par;
     }
 
     public int get_def(boolean have_eff) {
         int def = this.get_total_point(2);
         def += total_param_item(3, have_eff);
-        def += (p.sucmanhvatly * 200);
+        def += (p.sucmanhvatly * 100);
         return def;
     }
 
@@ -457,7 +457,7 @@ public class Body {
         percent += ((p.doriki[0] - 1) * 50 + p.doriki[1]) * 100;
         hp = (hp * (1000L + percent)) / 1000L;
         hp = (hp * (1000L + total_param_item(56, true))) / 1000L; // % hp cuoi
-        hp += (p.sucmanhvatly * 20000);
+        hp += (p.sucmanhvatly * 10000);
         if (hp > 2_000_000_000L) {
             hp = 2_000_000_000L;
         }
@@ -470,7 +470,7 @@ public class Body {
         mp += total_param_item(16, have_eff);
         mp += ((p.doriki[0] - 1) * 50 + p.doriki[1]) * 100;
         mp = (mp * (1000 + total_param_item(18, have_eff))) / 1000;
-        mp += (p.sucmanhvatly * 20000);
+        mp += (p.sucmanhvatly * 10000);
         return mp;
     }
 
@@ -622,7 +622,7 @@ public class Body {
     public int get_pierce(boolean have_eff) {
         int par = total_param_item(13, have_eff);
         par += Body.Point1_Template_pierce[this.get_total_point(1) - 1];
-        par += (p.sucmanhvatly * 200);
+        par += (p.sucmanhvatly * 100);
         
         if (par > 750) {
             int save = par - 750;
@@ -646,7 +646,7 @@ public class Body {
     public int get_crit(boolean have_eff) {
         int par = total_param_item(10, have_eff);
         par += Body.Point1_Template_crit[this.get_total_point(1) - 1];
-        par += (p.sucmanhvatly * 200);
+        par += (p.sucmanhvatly * 100);
         //
         if (par > 750) {
             int save = par - 750;

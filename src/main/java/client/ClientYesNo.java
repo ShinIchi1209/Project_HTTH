@@ -114,7 +114,7 @@ public class ClientYesNo {
                 }
                 case 60: {
                     if (p.data_yesno != null && p.data_yesno.length == 1) {
-                        int coin = p.data_yesno[0] * 5;
+                        int coin = p.data_yesno[0];
                         if (p.conn.coin < coin) {
                             Service.send_box_ThongBao_OK(p,
                                     "Bạn không đủ " + Util.number_format(coin) + " coin");
@@ -124,7 +124,7 @@ public class ClientYesNo {
                             return;
                         }
                         if (p.update_coin(-coin)) {
-                            p.update_ngoc(p.data_yesno[0]);
+                            p.update_ngoc(p.data_yesno[0]*2);
                             p.update_money();
                             Service.send_box_ThongBao_OK(p,
                                 "Bạn đã đổi thành công " + Util.number_format(coin) + " coin ra "
@@ -2339,14 +2339,14 @@ public class ClientYesNo {
                         return;
                     }
                     p.update_ngoc(-1000);
-                    p.update_vnd(750_000);
+                    p.update_vnd(7_500);
                     p.update_money();
-                    Service.send_box_ThongBao_OK(p, "Bạn đã đổi thành công 750.000 Extol.");
+                    Service.send_box_ThongBao_OK(p, "Bạn đã đổi thành công 7.500 Extol.");
                     break;
                 }
                 case 9: {
                     if (p.data_yesno != null && p.data_yesno.length == 1) {
-                        int extol = p.data_yesno[0] * 1000;
+                        int extol = p.data_yesno[0] * 10;
                         if (p.get_vnd() < extol) {
                             Service.send_box_ThongBao_OK(p,
                                     "Bạn không đủ " + Util.number_format(extol) + " extol");

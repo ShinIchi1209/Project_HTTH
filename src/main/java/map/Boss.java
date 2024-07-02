@@ -155,7 +155,7 @@ public class Boss {
             }
         }
         try {
-            Manager.gI().chatKTG(0, "Hoạt động săn siêu trùm hôm nay đã kết thúc", 5);
+            Manager.gI().chatKTG(0, "Hoạt động săn siêu trùm theo giờ đã kết thúc", 5);
         } catch (IOException e) {
             e.printStackTrace();
         }

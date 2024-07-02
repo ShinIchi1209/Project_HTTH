@@ -35,12 +35,12 @@ public class SucManhVatLy {
                 Service.send_box_ThongBao_OK(p,
                         "Thành công luyện thể đến tầng " + p.sucmanhvatly 
                         + "\nĐạt được:\n" 
-                        +"+ " + (p.sucmanhvatly * 200) + " sát thương\r\n"  
-                        +"+ " + (p.sucmanhvatly * 200) + " phòng thủ\r\n" + "+ "
-                        +"+ " + String.format("%.2f", p.sucmanhvatly * 2f) + "% Chí Mạng\r\n" + "+ "
-                        +"+ " + String.format("%.2f", p.sucmanhvatly * 2f) + "% Xuyên giáp\r\n" + "+ " 
-                        +"+ " + (p.sucmanhvatly * 20000)+ " máu\r\n"
-                        +"+ " + (p.sucmanhvatly * 20000) + " mana");
+                        +"+ " + (p.sucmanhvatly * 100) + " sát thương\r\n"  
+                        +"+ " + (p.sucmanhvatly * 100) + " phòng thủ\r\n" 
+                        +"+ " + String.format("%.2f", p.sucmanhvatly * 1f) + "% Chí Mạng\r\n" 
+                        +"+ " + String.format("%.2f", p.sucmanhvatly * 1f) + "% Xuyên giáp\r\n"
+                        +"+ " + (p.sucmanhvatly * 10000)+ " máu\r\n"
+                        +"+ " + (p.sucmanhvatly * 10000) + " mana");
             } else {
                 Service.send_box_ThongBao_OK(p, "Thất bại, hãy nghỉ nghơi và thử lại");
             }
@@ -53,18 +53,18 @@ public class SucManhVatLy {
 
     public static void send_info(Player p) throws IOException {
         String sucmanh = "";
-        if (p.sucmanhvatly == 12){
+        if (p.sucmanhvatly < 12){
             sucmanh = "\nTầng tiếp theo cần  5 triệu beri và 2.000 ruby, tỷ lệ 30%\n";
         }
         String notice = "Hiện tại: luyện đến tầng " + p.sucmanhvatly + " / 12."
                 + sucmanh
                 + "\nĐạt được:\n" 
-                + "+ " + (p.sucmanhvatly * 200) + " sát thương\r\n"  
-                + "+ " + (p.sucmanhvatly * 200) + " phòng thủ\r\n" + "+ "
-                + "+ " + String.format("%.2f", p.sucmanhvatly * 2f) + "% Chí Mạng\r\n" + "+ "
-                + "+ " + String.format("%.2f", p.sucmanhvatly * 2f) + "% Xuyên giáp\r\n" + "+ " 
-                + "+ " + (p.sucmanhvatly * 20000)+ " máu\r\n"
-                + "+ " + (p.sucmanhvatly * 20000) + " mana\r\n"
+                + "+ " + (p.sucmanhvatly * 100) + " sát thương\r\n"  
+                + "+ " + (p.sucmanhvatly * 100) + " phòng thủ\r\n" + "+ "
+                + "+ " + String.format("%.2f", p.sucmanhvatly * 1f) + "% Chí Mạng\r\n" + "+ "
+                + "+ " + String.format("%.2f", p.sucmanhvatly * 1f) + "% Xuyên giáp\r\n" + "+ " 
+                + "+ " + (p.sucmanhvatly * 10000)+ " máu\r\n"
+                + "+ " + (p.sucmanhvatly * 10000) + " mana\r\n"
                 + "\nExp: " + p.lucthuc[2];
         Service.send_box_ThongBao_OK(p, notice);
     }

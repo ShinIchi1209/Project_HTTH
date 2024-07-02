@@ -184,6 +184,7 @@ public class Player {
             wanted_price = rs.getInt("wanted_point");
             diemdanh = rs.getInt("diemdanh");
             diemdanhvip = rs.getInt("diemdanhvip");
+            tichLuy = rs.getInt("tichluy");
             //vnd = rs.getInt("coin");
             JSONArray js = (JSONArray) JSONValue.parse(rs.getString("level"));
             level = Short.parseShort(js.get(0).toString());
@@ -213,7 +214,7 @@ public class Player {
             kimcuong = Integer.parseInt(js.get(1).toString());
             vnd = Integer.parseInt(js.get(2).toString());
             bua = Integer.parseInt(js.get(3).toString());
-            tichLuy = Integer.parseInt(js.get(4).toString());
+            //tichLuy = Integer.parseInt(js.get(4).toString());
             pvp_win = Integer.parseInt(js.get(5).toString());
             pvp_lose = Integer.parseInt(js.get(6).toString());
             time_ship = Byte.parseByte(js.get(7).toString());
@@ -627,7 +628,7 @@ public class Player {
                         + "`bag3` = ?, `it_body` = ?, `potential` = ?, `bag47` = ?, "
                         + "`rms` = ?, `skill` = ?, `friend` = ?, `enemy` = ?, `fashion` = ?, `eff` = ?, `box47` = ?, `box3` = ?, `quest` = ?, "
                         + "`exp` = ?, `pvppoint` = ?, `save_it3` = ?, `save_it47` = ?, "
-                        + "`hanhtrinh` = ?, `wanted_point` = ?, `wanted_chest` = ?, `mypet` = ?, `diemdanh` = ?, `diemdanhvip` = ?, `lucthuc` = ? WHERE `id` = "
+                        + "`hanhtrinh` = ?, `wanted_point` = ?, `wanted_chest` = ?, `mypet` = ?, `diemdanh` = ?, `diemdanhvip` = ?, `lucthuc` = ?, `tichluy` = ? WHERE `id` = "
                         + p.id + ";";
         Connection connection = null;
         PreparedStatement ps = null;
@@ -957,6 +958,7 @@ public class Player {
             js.add(p.lucthuc[2]);
             ps.setNString(28, js.toJSONString());
             js.clear();
+            ps.setInt(29, p.tichLuy);
             //
             result = ps.executeUpdate();
         } catch (SQLException e) {
