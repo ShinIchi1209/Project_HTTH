@@ -429,7 +429,7 @@ public class Manager {
                 temp.istrade = rs.getByte("istrade");
                 temp.type = rs.getByte("hpmpother");
                 temp.timedelay = rs.getShort("timedelay");
-                temp.value = rs.getShort("value");
+                temp.value = rs.getInt("value");
                 temp.timeactive = rs.getShort("timeactive");
                 temp.nameuse = rs.getString("nameuse");
                 ItemTemplate4.ENTRYS.add(temp);

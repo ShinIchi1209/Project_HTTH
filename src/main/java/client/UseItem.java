@@ -107,14 +107,14 @@ public class UseItem {
                     if (eff == null || (eff.time - System.currentTimeMillis()) < 1_000) {
                         long par = it_temp.value;
                         if (it_temp.id == 173) { // com hop hai tac
-                            par = p.body.get_hp_max(true) / 20;
+                            par = p.body.get_hp_max(true) / 10;
                         }
                         par = (par * (100 + p.body.get_hp_potion_use_percent(true) / 10)) / 100;
                         if (par < 0) {
                             par = 0;
                         }
-                        if (it_temp.id == 173 && par > 10_000) { // com hop hai tac
-                            par = 10_000;
+                        if (it_temp.id == 173 && par > 100_000) { // com hop hai tac
+                            par = 100_000;
                         }
                         p.add_new_eff(0, (int) par, it_temp.timedelay);
                     }

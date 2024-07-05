@@ -764,7 +764,7 @@ public class Clan {
                             }
                         }
                     }
-                    //
+                    //9KP#XzV2
                     Message m = new Message(-52);
                     m.writer().writeByte(10);
                     m.writer().writeShort(p.index_map);
@@ -1621,9 +1621,11 @@ public class Clan {
     }
 
     public static int get_ngoc_icon(short id) {
-        int result = 50;
-        if (id >= 293 && id < 370) {
-            result = 200;
+        int result = 500;
+        if (id >= 293 && id < 317 && id >= 336 && id < 351 ) {
+            result = 1000;
+        } else if (id >= 317 && id < 336 && id >= 351 && id < 371 ){
+            result = 2000;
         }
         return result;
     }

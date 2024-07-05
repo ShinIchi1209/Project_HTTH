@@ -13,7 +13,7 @@ public class ItemTemplate4 {
 	public int beri;
 	public byte istrade;
 	public short timedelay;
-	public short value;
+	public int value;
 	public short timeactive;
 	public String nameuse;
 	public short indexInfoPotion;

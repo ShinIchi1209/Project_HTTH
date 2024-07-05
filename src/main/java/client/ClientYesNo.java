@@ -2267,8 +2267,8 @@ public class ClientYesNo {
                     if (p.data_yesno != null && p.data_yesno.length == 1) {
                         Item_wear it_select = p.item.bag3[p.data_yesno[0]];
                         if (it_select != null && it_select.numLoKham < 4
-                                && it_select.numHoleDaDuc < 2 && it_select.template.typeEquip < 6) {
-                            if (it_select.numHoleDaDuc < 1) {
+                                && it_select.numHoleDaDuc < 4 && it_select.template.typeEquip < 6) {
+                            if (it_select.numHoleDaDuc < 4) {
                                 if (p.get_ngoc() < 50) {
                                     Service.send_box_ThongBao_OK(p, "Bạn không đủ 50 Ruby");
                                     p.data_yesno = null;
@@ -2276,7 +2276,7 @@ public class ClientYesNo {
                                     return;
                                 }
                                 p.update_ngoc(-50);
-                                it_select.numHoleDaDuc = 1;
+                                it_select.numHoleDaDuc ++;
                             } else {
                                 if (p.get_ngoc() < 200) {
                                     Service.send_box_ThongBao_OK(p, "Bạn không đủ 200 Ruby");
@@ -2285,7 +2285,7 @@ public class ClientYesNo {
                                     return;
                                 }
                                 p.update_ngoc(-200);
-                                it_select.numHoleDaDuc = 2;
+                                it_select.numHoleDaDuc = 4;
                             }
                             p.update_money();
                             it_select.numLoKham++;

@@ -804,29 +804,24 @@ public class MessageHandler {
                     + "\n"
                     + "Cùng với Haki, Trái ác quỷ và Karate Người cá thì Lục thức là một trong những sức mạnh độc đáo của One Piece.\n"
                     + "\n"
-                    + "Chi Tiết : Tự tìm hiểu \n"
+                    + "Chi Tiết : Làm nvl, farm quái sẽ nhận được Exp lục thức dùng nâng cấp tại Bugi\n"                    
             );
             conn.p.list_msg_cache.add(m2);
             Message m3 = new Message(18);
-            m3.writer().writeUTF("Đua Top ");
-            m3.writer().writeUTF("\nThời gian: \n"
-                    + "Phần thưởng:\n"
-                    + "- Top 1: 1 trái ác quỷ bóng tối, 15 khiên, 1 đá Hổ phách - Ruby siêu cấp, 1 thời trang UTA (vĩnh viễn)\n"
-                    + "- Top 2-3: 1 trái ác quỷ bóng tối, 10 khiên, 1 đá Hổ phách cấp 6\n"
-                    + "- Top 4-10: 1 trái ác quỷ sét, 5 khiên, 1 đá hổ phách cấp 5.\n"
-                    + "TOP 10 nhân vật nạp nhiều nhất:\n"
-                    + "- TOP 1: Trái ác quỷ Bóng Tối, Thời trang Mihawk Gold, 1 Đá khảm vô cực S, 100 Đá hải thạch cấp 6, 500.000.000 Beri\n"
-                    + "- TOP 2: 1 Trang bị Max +12, Thời trang Mihawk Gold, 1 Đá khảm vô cực S, 80 Đá hải thạch cấp 6, 400.000.000 Beri\n"
-                    + "- TOP 3: 1 Trang bị Max +12, Thời trang Mihawk, 1 Đá khảm vô cực S, 50 Đá hải thạch cấp 6, 300.000.000 Beri\n"
-                    + "- TOP 4-10: 1 Trang bị Max +10, Thời trang Mihawk, 1 Đá khảm vô cực, 30 Đá hải thạch cấp 6, 100.000.000 Beri\n"
+            m3.writer().writeUTF("Project Hải Tặc");
+            m3.writer().writeUTF(
+                    "\nThông tin :\n"
+                    + "Mỗi tài khoản mới được nhận 50k coin và 50 điểm tích lũy.\n"
+                    + "Sau khi tạo tài khoản thì thoát ra vào lại để cập nhật\n"
+                    + "Đm vận chuyển hàng được nhiều tiền vl\n"
                     + "");
             conn.p.list_msg_cache.add(m3);
             Message m4 = new Message(18);
             m4.writer().writeUTF("GiftCode");
             m4.writer().writeUTF(
                      " \n- 1: tanthu"
-//                    + "\n- 2: ThanhVien"
-//                    + "\n- 3:tambiet2023"
+                    + "\n- 2: test1"
+                    + "\n- 3: test2"
 //                    + "\n- 4:htht2024"
 //                    + "\n- 5:baotri"
                     );

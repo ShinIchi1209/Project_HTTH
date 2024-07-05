@@ -166,7 +166,7 @@ public class UpgradeSuperItem {
                 p.item.remove_item47(7, 1, material_0);
                 p.item.remove_item47(7, id_matrial_1, material_1);
                 int percent_decrease_level = 80;
-                int percent_suc = 5;
+                int percent_suc = 10;
                 if (p.data_super_upgrade[1] >= 1 && p.data_super_upgrade[1] <= 5) {
                     percent_decrease_level -= (p.data_super_upgrade[1]) * 15;
                     p.item.remove_item47(7, 6, p.data_super_upgrade[1]);

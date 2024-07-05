@@ -1345,19 +1345,19 @@ public class MenuController {
                         int beri_total = 0;
                         switch (p.id_ship_packet) {
                             case 36: {
-                                beri_total = 500_000;
-                                break;
-                            }
-                            case 37: {
-                                beri_total = 1_000_000;
-                                break;
-                            }
-                            case 38: {
                                 beri_total = 2_000_000;
                                 break;
                             }
-                            case 39: {
+                            case 37: {
                                 beri_total = 4_000_000;
+                                break;
+                            }
+                            case 38: {
+                                beri_total = 6_000_000;
+                                break;
+                            }
+                            case 39: {
+                                beri_total = 8_000_000;
                                 break;
                             }
                         }
